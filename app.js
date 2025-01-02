@@ -24,7 +24,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
         if (containsKeywordDate) {
             return ctxFn.gotoFlow(dateFlow); //Si quiere agendar una cita
         } else {
-            return ctxFn.endFlow("No te entiend");
+            return;
         }
     })
 
