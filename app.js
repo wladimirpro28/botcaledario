@@ -12,7 +12,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
     .addAction(async (ctx, ctxFn) => {
         const bodyText = ctx.body.toLowerCase();
         //El usuario esta saludando?
-        const keywords = ["hola", "buenas", "ola"];
+        const keywords = ["pppp", "pppp", "ppppp"];
         const containsKeyword = keywords.some(keyword => bodyText.includes(keyword));
         if (containsKeyword && ctx.body.length < 8) {
             return await ctxFn.gotoFlow(welcomeFlow) //Si, esta saludando
