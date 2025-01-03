@@ -12,7 +12,7 @@ const formFlow = addKeyword(EVENTS.ACTION)
             await ctxFn.state.update({ motive: ctx.body }); // Guarda el motivo en el estado
         }
     )
-    .addAnswer("¡Excelente! Ya creé la cita. Te esperamos con mucho gusto. 😊 Si necesitas más información, no dudes en escribirnos. ¡Que tengas un gran día!", null,
+    .addAnswer("¡Excelente! Ya creé la reunión. ¡Te esperamos!", null,
         async (ctx, ctxFn) => {
                 const userInfo = await ctxFn.state.getMyState();
                 const eventName = userInfo.name;
