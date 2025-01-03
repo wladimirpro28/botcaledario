@@ -1,5 +1,3 @@
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
-
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
@@ -12,7 +10,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
     .addAction(async (ctx, ctxFn) => {
         const bodyText = ctx.body.toLowerCase();
         //El usuario esta saludando?
-        const keywords = ["pppp", "pppp", "ppppp"];
+        const keywords = ["hola", "buenas", "ola"];
         const containsKeyword = keywords.some(keyword => bodyText.includes(keyword));
         if (containsKeyword && ctx.body.length < 8) {
             return await ctxFn.gotoFlow(welcomeFlow) //Si, esta saludando
@@ -24,7 +22,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
         if (containsKeywordDate) {
             return ctxFn.gotoFlow(dateFlow); //Si quiere agendar una cita
         } else {
-            return;
+            return ctxFn.endFlow("No te entiendo");
         }
     })
 
